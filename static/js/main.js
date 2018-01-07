@@ -25,6 +25,9 @@ function modify_page() {
 		var path = $(image).attr("src");
 		if (!$(image).attr("alt")){
 			$(image).attr("alt","image");
+			if (path.startsWith("_img")){
+				$(image).attr("src","/"+path);
+			}
 		}
 	})
 
