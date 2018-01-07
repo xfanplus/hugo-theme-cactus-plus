@@ -1,5 +1,7 @@
 # Hogu Theme Cactus Plus
 
+This is a hugo theme modified from [nodejh](http://nodejh.com) for my own blog https://xfanplus.com
+
 [English Document](https://github.com/nodejh/hugo-theme-cactus-plus/blob/master/README.md) | [中文文档](https://github.com/nodejh/hugo-theme-cactus-plus/blob/master/README_zh-cn.md)
 
 Cactus Plus is a minimalistic theme for bloggers based on the theme named [Cactus](https://github.com/digitalcraftsman/hugo-cactus-theme).
