@@ -1,6 +1,10 @@
 {{ partial "head.html" . }}
     <body>
-        <div class="header-area" style="{{ if .Params.image }}background-image:url({{ .Site.BaseURL }}{{ .Params.image }}){{ else }}background: white{{ end }}">
+        {{ if .Params.image }}
+        <div class="header-area" style="background-image:url({{ $.Site.BaseURL }}{{ $.Params.image }})">
+        {{ else }}
+        <div class="header-area" style="background-image:url({{ $.Site.BaseURL }}{{ $.Site.Params.defaultImage }})">
+        {{ end }}
             {{ partial "nav.html" . }}
             <div>
                 <section id="wrapper">
