@@ -17,20 +17,30 @@ function isRetina() {
 };
  
  
-function retina() {
+function modify_page() {
+	$("img").map(function(i,image){
+		$(image).css("width","auto");
+		$(image).parent().css("text-align","center");
+
+		var path = $(image).attr("src");
+		if (!$(image).attr("alt")){
+			$(image).attr("alt","image");
+		}
+	})
+
 	
 	if (!isRetina())
 		return;
 	
 	$("img.2x").map(function(i, image) {
 		
-		var path = $(image).attr("src");
-		
 		path = path.replace(".png", "@2x.png");
 		path = path.replace(".jpg", "@2x.jpg");
 		
 		$(image).attr("src", path);
 	});
+
+	
 };
  
-$(document).ready(retina);
+$(document).ready(modify_page);

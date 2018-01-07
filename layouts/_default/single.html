@@ -1,10 +1,10 @@
 {{ partial "head.html" . }}
     <body>
-       {{ partial "nav.html" . }}
-
-        <section id="wrapper" class="post">
-            <article>
-                <header>
+        <div class="header-area" style="{{ if .Params.image }}background-image:url({{ .Site.BaseURL }}{{ .Params.image }}){{ else }}background: white{{ end }}">
+            {{ partial "nav.html" . }}
+            <div>
+                <section id="wrapper">
+                    <header id="header" class="post-header">
                     <h1>
                         {{ .Title }}
                     </h1>
@@ -12,17 +12,22 @@
                     {{ .Date.Format "Jan 2, 2006 15:04" }}
                     · {{ if lt 1 .WordCount }}{{ .WordCount }} words{{ else }}{{ .WordCount }} word{{ end }}
                     · {{ .ReadingTime }} minute read
-                      <span class="tags">
-                      {{ with .Params.tags }}
-                      {{ if ge (len .) 1 }}
-                          {{ range . }}
-                              <a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">{{ . }}</a>
-                          {{ end }}
-                      {{ end }}
-                      {{ end}}
-                      </span>
+                    <span class="tags">
+                    {{ with .Params.tags }}
+                    {{ if ge (len .) 1 }}
+                        {{ range . }}
+                            <a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">{{ . }}</a>
+                        {{ end }}
+                    {{ end }}
+                    {{ end}}
+                    </span>
                     </h2>
-                </header>
+                    </header>
+                </section>
+            </div>
+        </div>
+        <section id="wrapper" class="post">
+            <article>
                 {{ if .Site.Params.enableToc }}
                   {{ if .TableOfContents }}
                     <div id="toc">
