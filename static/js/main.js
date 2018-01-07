@@ -23,11 +23,11 @@ function modify_page() {
 		$(image).parent().css("text-align","center");
 
 		var path = $(image).attr("src");
+		if (path.startsWith("_img")){
+			$(image).attr("src","/"+path);
+		}
 		if (!$(image).attr("alt")){
 			$(image).attr("alt","image");
-			if (path.startsWith("_img")){
-				$(image).attr("src","/"+path);
-			}
 		}
 	})
 
